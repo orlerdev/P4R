@@ -29,7 +29,7 @@ const ImagesContainer = styled.div`
 `;
 
 const Image = styled.img`
-	width: 12rem;
+	width: 200px;
 	aspect-ratio: 4/3;
 	box-shadow: #fff 2px 3px 10px;
 	cursor: pointer;
@@ -41,18 +41,19 @@ const Image = styled.img`
 `;
 
 const PhotoGallery = () => {
+	// CAN REMOVE eventFolder AND PASS THE STRING DIRECTLY INTO photoURLs INSTEAD
+	// RENAME photoURLs TO BE THE NAME OF THE EVENT TO SHOW: event1Photos
+
 	const eventFolder = 'event1';
 	const photoURLs = useEventPhotos(eventFolder);
-	console.log(photoURLs);
 
 	return (
 		<PhotoGalleryContainer>
 			<h2></h2>
 			<ImagesContainer>
-				<h3>Images Container</h3>
-				{photoURLs.map(url => {
-					<Image key={url} src={url} alt="Event Photo" />;
-				})}
+				{photoURLs.map(url => (
+					<Image key={url} src={url} alt="Event Photo" />
+				))}
 			</ImagesContainer>
 		</PhotoGalleryContainer>
 	);
