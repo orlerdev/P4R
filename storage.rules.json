@@ -1,0 +1,12 @@
+[
+	{
+		"origin": ["http://localhost:5173"], // Replace with your development URL
+		"method": ["GET"],
+		"maxAgeSeconds": 3600
+	},
+	{
+		"origin": ["https://your-production-domain.com"], // Replace with your production URL
+		"method": ["GET"],
+		"maxAgeSeconds": 3600
+	}
+]
