@@ -29,7 +29,7 @@ const Logo = styled.div`
 `;
 
 const Menu = styled.ul`
-	list-style-type: style none;
+	list-style-type: none;
 	display: flex;
 	align-items: center;
 	column-gap: 15px;
@@ -64,7 +64,6 @@ const Navbar = () => {
 				<li>
 					<a href="/"></a>
 				</li>
-				<span> | </span>
 				<li>About Us</li>
 				<span> | </span>
 				<li>Our Events</li>

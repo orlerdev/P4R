@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import useEventPhotos from '../hooks/useEventPhotos';
 
 const PhotoGalleryContainer = styled.div`
@@ -40,18 +41,17 @@ const Image = styled.img`
 	}
 `;
 
-const PhotoGallery = () => {
+const PhotoGallery = ({ title, eventName }) => {
 	// CAN REMOVE eventFolder AND PASS THE STRING DIRECTLY INTO photoURLs INSTEAD
 	// RENAME photoURLs TO BE THE NAME OF THE EVENT TO SHOW: event1Photos
 
-	const eventFolder = 'event1';
-	const photoURLs = useEventPhotos(eventFolder);
+	const eventPhotos = useEventPhotos(eventName);
 
 	return (
 		<PhotoGalleryContainer>
-			<h2></h2>
+			<h2>{title}</h2>
 			<ImagesContainer>
-				{photoURLs.map(url => (
+				{eventPhotos.map(url => (
 					<Image key={url} src={url} alt="Event Photo" />
 				))}
 			</ImagesContainer>
@@ -60,3 +60,8 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
+
+PhotoGallery.propTypes = {
+	title: PropTypes.string.isRequired,
+	eventName: PropTypes.string.isRequired
+};
